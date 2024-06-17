@@ -6,3 +6,4 @@ set_param(modelName, 'Toolchain', 'MinGW64 | gmake (64-bit Windows)');
 set_param(modelName, 'Solver', 'FixedStepDiscrete');  
 set_param(modelName, 'FixedStep', '0.1');  
 rtwbuild(modelName);  
+save_system(modelName);
