@@ -14,6 +14,12 @@ pipeline {
                 runMATLABCommand(command: 'simulation_check')
             }       
         }
+       stage('Test') {
+            steps {
+               runMATLABCommand(command: 'variables_for_jenkins')
+                runMATLABCommand(command: 'automating_with_variables')
+            }       
+        }
        stage('Jmaab_check') {
             steps {
                 runMATLABCommand(command: 'jmaab_check')
@@ -24,20 +30,6 @@ pipeline {
                 runMATLABCommand(command: 'code_generation')
             }       
         }
-       stage('Test') {
-            steps {
-               runMATLABCommand(command: 'variables_for_jenkins')
-                runMATLABCommand(command: 'automating_with_variables')
-            }       
-        }
-        // stage('Testcases') {
-        //     steps {
-        //         runMATLABTests(testResultsJUnit: 'test-results/results.xml',
-        //                        codeCoverageCobertura: 'code-coverage/coverage.xml', 
-        //                          testResultsPDF: 'test-results/testreport.pdf')
-        //        // runMATLABCommand(command: 'test_and_gate_model')
-        //     }
-        // }
        stage('Final_Step') {
             steps {
                runMATLABCommand(command: 'disp("The building is finished!")')
